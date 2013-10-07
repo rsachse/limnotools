@@ -1,0 +1,274 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en"><html><head> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">   <meta name="GENERATOR" content="Mozilla/4.7 [de] (WinNT; I) [Netscape]">   
+
+<title>Water Density</title>
+<script language="JavaScript">
+
+
+<!--
+
+function pow(basis, exponent) 
+{
+//log ist der natuerliche Logarithmus
+return Math.exp(exponent * Math.log(basis));
+}
+
+//-->
+
+
+<!--
+function density ()    
+{	
+	Tc = eval(window.document.densitycalc.temperature.value)     
+ 	T = Tc + 273.15  	// Umrechnung Celsius nach Kelvin     
+	p = eval(window.document.densitycalc.pressure.value)     
+	S = eval(window.document.densitycalc.salinity.value)     
+	
+
+Tc2 = pow(Tc,2);
+Tc3 = pow(Tc,3);
+Tc4 = pow(Tc,4);
+Tc5 = pow(Tc,5);
+Tc6 = pow(Tc,6);
+Tc7 = pow(Tc,7);
+Tc8 = pow(Tc,8);
+pnew2=pow(p,2);
+S23= pow(S,2/3);
+S2= pow(S,2);
+
+
+	Dpaul4 = -6.5515551052E-07	
+	Dpaul3 = 0.000088534831535 + Dpaul4*Tc
+	Dpaul2 = -0.0089764830531 + Dpaul3*Tc
+	Dpaul1 = 0.067477741278 + Dpaul2*Tc
+	Dpaul0 = 999.84102229 + Dpaul1*Tc	
+paul = Dpaul0
+
+	
+	a=6.7914*Tc/100000
+	b=9.0894*Tc2/1000000
+	c=1.0171*Tc3/10000000
+	d=1.2846*Tc4/1000000000
+	e=1.1592*Tc5/100000000000
+	f=5.0125*Tc6/100000000000000	
+	g=8.181/10000
+	h=3.85*Tc/1000000
+	i=4.96*Tc2/100000000
+	rho0 = 0.9998395+a-b+c-d+e-f+((g-h+i)*S)
+
+	aa=148.113*Tc
+	bb=2.293*Tc2
+	cc=1.256*Tc3/100
+	dd=4.18*Tc4/100000
+	ee=2.147*Tc/10000
+	ff=1.128*Tc2/10000
+	gg=0.313*Tc
+	hh=5.728*p/1000
+	K=19652.17+aa-bb+cc-dd+((3,2726-ee+ff)*p)+((53,238-gg+hh)*S)
+
+chen = rho0/(1-(p/K))*1000
+	
+	
+	pnew = p / 10
+
+	a0 = 999.842594
+	a1 = 0.06793952
+	a2 = -0.00909529
+	a3 = 0.0001001685
+	a4 = -0.000001120083
+	a5 = 0.000000006536332
+
+	b0 = 0.824493
+	b1 = -0.0040899
+	b2 = 0.000076438
+	b3 = -0.00000082467
+	b4 = 0.0000000053875
+
+	c0 = -0.00572466
+	c1 = 0.00010227
+	c2 = -0.0000016546
+	
+	d0 = 0.00048314
+
+	e0 = 19652.21
+	e1 = 148.4206
+	e2 = -2.327105
+	e3 = 0.01360477
+	e4 = -0.00005155288
+
+	f0 = 54.6746
+	f1 = -0.603459
+	f2 = 0.0109987
+	f3 = -0.00006167
+
+	g0 = 0.07944
+	g1 = 0.016483
+	g2 = -0.00053009
+
+	h0 = 3.239908
+	h1 = 0.00143713
+	h2 = 0.000116092
+	h3 = -0.000000577905
+
+	i0 = 0.0022838
+	i1 = -0.000010981
+	i2 = -0.0000016078
+
+	j0 = 0.000191075
+
+	k0 = 0.0000850935
+	k1 = -0.00000612293
+	k2 = 0.000000052787
+
+	m0 = -0.00000099348
+	m1 = 0.000000020816
+	m2 = 0.00000000091697
+
+Rw = a0 + (a1 * Tc) + (a2 * Tc2) + (a3 * Tc3) + (a4 * Tc4) + (a5 * Tc5)
+Kw = e0 + e1 * Tc + e2 * Tc2 + e3 * Tc3 + e4 * Tc4
+Aw = h0 + h1 * Tc + h2 * Tc2 + h3 * Tc3
+Bw = k0 + k1 * Tc + k2 * Tc2
+R = Rw + (b0 + b1 * Tc + b2 * Tc2 + b3 * Tc3 + b4 * Tc4) * S + (c0 + c1 * Tc + c2 * Tc2) * S23 + d0 * (S2)
+K2 = Kw + (f0 + f1 * Tc + f2 * Tc2 + f3 * Tc3) * S + (g0 + g1 * Tc + g2 * Tc2) * S23
+aaa = Aw + (i0 + i1 * Tc + i2 * Tc2) * S + j0 * S23
+B = Bw + (m0 + m1 * Tc + m2 * Tc2) * S
+K3 = K2 + aaa * pnew + B * (pnew2)
+y = (1 - pnew / K3) / R
+
+fofoloff = 1/y
+
+window.document.densitycalc.rho1.value = Math.round(1000*paul)/1000; 
+window.document.densitycalc.rho2.value = Math.round(1000*chen)/1000; 
+window.document.densitycalc.rho3.value = Math.round(1000*fofoloff)/1000; 
+}  //-->
+
+</script>
+</head>
+
+
+<body>
+<h1>Water Density In Dependence On Temperature </h1>
+<b><font color="#FF0000">
+This formular needs to activate JavaScript on your webbrowser. 
+</font>
+</b><p>
+The methode for the water density calculation according to PAUL and to CHEN and MILLEROW (considered to be the most exact one) can be used only for the limnological range. Seawater density can be calculated according to FOFOLOFF and MILLARD (specific volume = 1/density). 
+<br>While using this formular please keep in mind there is no guarantee about the content e.g. for the calculation results. Further information much more detailed you will get out of the original literature.
+
+
+
+<p><form name=densitycalc>
+
+<br>
+<h3>INPUT</h3>
+<table BORDER >	
+<tr BGCOLOR="#99FF99">
+<td>(1)</td>
+<td>water temperature Tc (0...30&deg;C)=&nbsp;</td>
+<td><input name="temperature" size=10 maxlength=10 value="10"></td>
+<td>&deg;C</td>
+</tr>	
+<tr BGCOLOR="#99FF99">
+<td>(2)</td>
+<td>pressure (0...180 bar)=&nbsp;</td>
+<td><input name="pressure" size=10 maxlength=10 value="0"></td>
+<td>bar</td>
+</tr>	
+<tr BGCOLOR="#99FF99">
+<td>(3)</td>
+<td>salinity (0...0,6 PSS-78)=&nbsp;</td>
+<td><input name="salinity" size=10 maxlength=10 value="0"></td>
+<td>PSS-78</td>
+</tr>	
+</table>
+
+<p> 
+<ul>
+Tc = water temperature in &deg;C <br>
+T&nbsp; = water temperature in Kelvin (= Tc + 273.15) <br>
+</ul>
+
+<p>
+<input type=button value="start calculation !"
+onClick="density()">
+<br><br><br><br>
+
+
+<h3>RESULTS</h3>
+<table BORDER >	
+<tr BGCOLOR="#FFCCCC">
+<td>(1)</td>
+<td>water density = f{T}:&nbsp;</td>
+<td><input name="rho1" size=10 maxlength=10 readonly></td>
+<td>g/l</td>
+<td>(simple method according to <a href="#paul">Paul ´85</a>)</td>	
+</tr>	
+
+<tr BGCOLOR="#FFCCCC">
+<td>(2)</td>
+<td>water density = f{p;S;T}:&nbsp;</td>
+<td><input name="rho2" size=10 maxlength=10 readonly></td>
+<td>g/l</td>
+<td>(<a href="#chen">Chen and Millero</a>)</td>	
+</tr>
+
+<tr BGCOLOR="#FFCCCC">
+<td>(3)</td>
+<td>water density = f{p;S;T}:&nbsp;</td>
+<td><input name="rho3" size=10 maxlength=10 readonly></td>
+<td>g/l</td>
+<td>(<a href="#fofo">Fofonoff and Millard</a>)</td>	
+</tr>
+</table>
+<br><br><br>
+</form>
+
+
+
+<h3>Formulars In Use:</h3>
+
+(1) rho = D(j)
+<ul>
+	<table>	
+	<td>D = a(j) + D*T</td>
+	<td></td><td></td>
+	<td>{j from 4 to 0}</td></tr></table>
+    	a(0) = 999.84102229	<br>	
+	a(1) = 0.067477741278	<br>	
+	a(2) = -0.0089764830531	<br>	
+	a(3) = 0.000088534831535<br>	
+	a(4) = -6.5515551052E-07<br>	
+</ul>
+
+(2) rho = rho0 * (1 - p / K) ^ -1
+<ul>
+rho0 = density desalinated water in g/cm3 
+rho0 = 	0.9998395 + 0.000067914 * T - 0.0000090894 * T * T +0.00000010171 * T * T * T - 0.0000000012846 * T ^ 4 + 0.000000000011592 * T ^ 5 - 5.0125E-14 * T ^ 6 + (0.0008181-0.00000385 * T + 0.0000000496 * T * T) * S 
+<br>	
+K =19652.17 + 148.113 * T * -2.293 * T * T + 0.01256 * T ^ 3 -0.0000418 * T ^ 4 + (3.2726 - 0.0002147 * T + 0.0001128 * T ^ 2) * p + (53.238 - 0.313 * T + 0.005728 * p) * S </ul>
+
+(3) rho = 1 / ((1 - p/K) /R)<br>
+<ul>
+<td>R and K are underliing various calculations with a huge number of determined values describing the effects of pressure, salinity and temperature.</td></ul>
+<br>
+
+
+<h3>Literature And Links:</h3>
+<ul>
+
+<li><a NAME="paul"></a>Paul, L. (1985) - Das thermische Regime der Talsperre Saidenbach und einige Beziehungen zwischen abiotischen und biotischen Komponenten. Dissertation, TU Dresden, Fakultät Bau-, Wasser- und Forstwesen. 84 p.</li>
+
+<li><a NAME="chen"></a>Chen, Ch.-T. and F.J. Millero (1986) - Precise thermodynamic
+properties of natural waters covering only the limnological range.
+Limnol. Oceanogr. 31 No. 3, 657 - 662</li>
+
+<li><a NAME="fofo"></a>Fofonoff N.P. and R.C. Millard (1983) - Algorithms for Computation of Fundamental Properties of Seawater. UNESCO technical papers in marine science, 44, 53 pp. (<a href="http://www.satlab.hawaii.edu/ocn620/hydro/sv.m">http://www.satlab.hawaii.edu/ocn620/hydro/sv.m</a>)</li>
+
+
+
+</ul><font size=-1><a href="http://www.tu-dresden.de/fghhihb/limno">back to Limnology-Homepage</a></font>
+
+<p>
+<font size=-2>Karin Lange & Thomas Petzoldt 20.07.2000</font>
+</body>
+</html>

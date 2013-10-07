@@ -1,0 +1,182 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.7 [de] (WinNT; I) [Netscape]">
+   <title>Oxygen Saturation</title>
+<script language="JavaScript">
+  <!--
+   function O2sat()
+    {
+     Tc = eval(window.document.satcalc.Eingabe.value)
+     T = Tc + 273.15  // Umrechnung Celsius nach Kelvin
+         
+     paul = 14.674-13.644* Math.log(1+Tc/12.8)/Math.LN10;
+     qual2e=Math.exp(-139.34411+(157570.1/T)-(66423080/(T*T))+(12438000000/(T*T*T))-(862194900000/(T*T*T*T)))
+     window.document.satcalc.Ausgabe1.value = Math.round(100*paul)/100;
+     window.document.satcalc.Ausgabe2.value = Math.round(100*qual2e)/100;     
+     //alert("Die Sauerstoffsättigung bei " + Tc + "°C = " + Ergebnis + " mg/l");
+    }
+  //-->
+  </script>
+</head>
+<body>
+
+<h1>
+Berechnung der Sauerstoff-S&auml;ttigungskonzentration</h1>
+<b><font color="#FF0000">Dieses Formular erfordert die Aktivierung von
+JavaScript in Ihrem Webbrowser.</font></b>
+<p>Das Formular gilt f&uuml;r S&uuml;&szlig;wasser und Normaldruck. Grundlage
+sind empirische Me&szlig;daten (z.B. nach DIN 38408). Die Benutzung des
+Formulars geschieht auf eigene Gefahr und ohne jegliche Form von Gew&auml;hrleistung.
+Bitte konsultieren Sie die Originalliteratur!
+<p><form name = satcalc>
+<table BORDER >
+<tr BGCOLOR="#99FF99">
+<td>&nbsp;</td>
+
+<td>Wassertemperatur (0...40&deg;C)=&nbsp;</td>
+
+<td><input name="Eingabe" size=10 maxlength=10 value = "10"></td>
+
+<td>&deg;C</td>
+
+<td>(Eingabe erforderlich)</td>
+</tr>
+
+<tr BGCOLOR="#FFCCCC">
+<td>(1)</td>
+
+<td>Die O2-S&auml;ttigung betr&auml;gt:&nbsp;</td>
+
+<td><input name="Ausgabe1" size=10 maxlength=10 readonly></td>
+
+<td>mg/l</td>
+
+<td>(einfache Formel nach <a href="#paul">Paul</a>)</td>
+</tr>
+
+<tr BGCOLOR="#FFCCCC">
+<td>(2)</td>
+
+<td>Die O2-S&auml;ttigung betr&auml;gt:&nbsp;</td>
+
+<td><input name="Ausgabe2" size=10 maxlength=10 readonly></td>
+
+<td>mg/l</td>
+
+<td>(<a href="#apha">APHA</a>-Formel)</td>
+</tr>
+</table>
+
+<p><input type=button value="Berechne Sauerstoffsättigung = f(Temp)!" onClick="O2sat()">
+<br></form>
+<h3>
+Benutzte Formeln:</h3>
+(1) O2sat = 14.674-13.644* lg(1+Tc/12.8)
+<br>(2) O2sat =exp(-139.34411+(157570.1/T)-(66423080/T^2)+(12438000000/T^3)-(862194900000/T^4))
+<p>mit:
+<blockquote>Tc = Wassertemperatur in &deg;C
+<br>T&nbsp; = Wassertemperatur in Kelvin (= Tc + 273.15)</blockquote>
+
+<h3>
+Kommentar:</h3>
+Da im Regelfall nur die erste Stelle bedeutsam ist, sind beide Formeln
+f&uuml;r den praktischen Einsatz geeignet. Die Unterschiede resultieren
+gro&szlig;teils aus den verwendeten Originaldaten. Es existieren in der
+Literatur weitere Gleichungen (z.B. Wagner, 1979) sowie Modifikationen
+zur Anpassung an unterschiedliche Salinit&auml;ten (Meerwasser!) und Luftdr&uuml;cke
+(Gebirge!). Der Temperaturbereich ist in beiden F&auml;llen 0 ... 40&deg;C.
+<h3>
+Ein paar Vergleichswerte:</h3>
+Aus DIN 38408 Teil 23, Seite 5; gilt f&uuml;r luftges&auml;ttigtes Wasser
+im Gleichgewicht mit wasserdampfges&auml;ttigter Luft bei einem Atmosph&auml;rendruck
+von 1013 hPa (Normdruck). Beachte: Die DIN 38408 Teil 22 enth&auml;lt geringf&uuml;gig
+andere Werte. Generell soll die O2-Konzentration nur auf 1 Stelle nach
+dem Komma gerundet angegeben werden.
+<br>&nbsp;
+<table BORDER COLS=9 WIDTH="100%" >
+<tr BGCOLOR="#99FF99">
+<td>T (&deg;C)</td>
+
+<td>0</td>
+
+<td>4</td>
+
+<td>10</td>
+
+<td>15</td>
+
+<td>20</td>
+
+<td>25</td>
+
+<td>30</td>
+
+<td>40</td>
+</tr>
+
+<tr BGCOLOR="#FFCCCC">
+<td>DIN
+<br>(O2sat mg/l)</td>
+
+<td>14.62</td>
+
+<td>13.11</td>
+
+<td>11.29</td>
+
+<td>10.08</td>
+
+<td>9.09</td>
+
+<td>8.26</td>
+
+<td>7.56</td>
+
+<td>6.41</td>
+</tr>
+</table>
+
+<h3>
+Literatur + Links:</h3>
+
+<ul>
+<li>
+<a NAME="apha"></a>American Public Health Association, Inc. (1985): Standard
+Methods for the Examination of Water and Wastewater. 18th edition, 1992.
+(<a href="http://www.apha.org">http://www.apha.org</a>)</li>
+
+<li>
+Benson B. B. and Krause, D. (1980): The concentration and isotopic fractionation
+of gases dissolved in freshwater in equilibrium with the atmosphere. I.
+Oxygen. Limnology and Oceanography 25, 662-671.</li>
+
+<li>
+<a NAME="qual2e"></a>Brown, L.C. and Barnwell, T. O. Jr. (1987): The Enhanced
+Stream Water Quality Models QUAL2E and QUAL2E-UNCAS: Documentation and
+User Manual. U.S. Environmental Protection Agency, Athens, Georgia. EPA/600/3-87/007,
+p. 41. (<a href="http://www.epa.gov">http://www.epa.gov</a>)</li>
+
+<li>
+DIN 38408-23, Ausgabe:1987-11: Deutsche Einheitsverfahren zur Wasser-,
+Abwasser- und Schlammuntersuchung; Gasf&ouml;rmige Bestandteile (Gruppe
+G); Bestimmung des Sauerstoffs&auml;ttigungsindex (G 23) . (<a href="http://www.din.de">http://www.din.de</a>)</li>
+
+<li>
+<a NAME="paul"></a>Paul, L.: Empirische Formeln der Sauerstoffs&auml;ttigung
+(pers. comm.)</li>
+
+<li>
+Wagner, R. (1979): Die Praxis der Bestimmung des biochemischen Sauerstoffbedarfs
+- Ergebnisse einer Umfrage (Berichtigung und Erg&auml;nzung zur Ver&ouml;ffentlichung).
+Vom Wasser 53, S. 283-285.</li>
+
+<li>
+WTW (1987): Oxi-Fibel. Einf&uuml;hrung in die Gel&ouml;stsauerstoff-Me&szlig;technik.
+(<a href="http://www.wtw.de">http://www.wtw.de</a>)</li>
+</ul>
+<font size=-1><a href="zeugs.html">zur&uuml;ck</a></font>
+<p><font size=-2>Th. Petzoldt 11.07.2000</font>
+</body>
+</html>

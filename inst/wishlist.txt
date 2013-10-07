@@ -1,0 +1,39 @@
+- saturation concentration of oxygen (APHA-Formula)
+- density of pure water (Chen and Millero)
+
+- Stokes law (particle sedimentation)
+
+- zooplankton volume conversion formulae
+
+- vollenweider-plot (see work directory) in different versions
+  - original (OECD)
+  - o-PO4-version (Benndorf)
+
+- temperature profile interpolation and graphics
+
+- trophic state indices
+  - Carlson
+  - Walker
+  - Loth & Ackermann
+  - LAWA (formula and different tables for lakes)
+
+- hypsographic formulae of Saidenbach, Klingenberg, Lehnmuehle, ...
+
+- import of GPS tracks
+
+- package vignette with examples
+
+
+Chen, C. T. & Millero, F. J. Precise Thermodynamic Properties for
+Natural Waters Covering Only the Limnological Range Limnol. Oceanogr.,
+1986, 31, 657-662
+
+Walker, W. W. Use of Hypolimnetic Oxygen Depletion Rate as a Trophic
+State Index for Lakes. Water Resour. Res., 1979, 15, 1463-1470
+
+Loth, P. & Ackermann, G. N"ahrstoffbelastung und Trophie von Talsperren
+der DDR. Teil 2: Charakterisierung der trophischen Verh"altnisse durch
+einen Trophieindex. Acta Hydrochim. Hydrobiol., 1989, 17, 295-308
+
+Carlson, R. E. A trophic state index for lakes. Limnol. Oceanogr., 1977, 
+22, 361-369
