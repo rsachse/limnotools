@@ -6,7 +6,7 @@ Date: 2008-02-20
 Depends: pastecs
 Suggests: tcltk
 Encoding: latin1
-Author: Thomas Petzoldt
+Author: Thomas Petzoldt, Rene Sachse
 Maintainer: Rene Sachse <rene.sachse@uni-potsdam.de>
 Description: Simplification of Menus, load calculations etc...
 License: GPL (>= 2)
