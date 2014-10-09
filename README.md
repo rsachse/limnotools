@@ -1,7 +1,7 @@
 limnotools
 ==========
 
-Help Tools of TU Dresden's Limnology Workgroup. Development of this package has been terminated! So this serves for long-term conservation and keeping old scripts running. Use with care!
+A few helper tools for data analysis of aquatic systems. The most essential functions of this package are now included in package ''marelac'' that is available from CRAN (http://cran.r-project.org/package=marelac). Therefore, development of "limnotools" has been terminated. This repository serves for conservation and keeping old scripts running. Use with care!
 
 Install the package
 -----------------------------------------------------------------------------
