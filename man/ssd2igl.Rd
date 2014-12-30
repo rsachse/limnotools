@@ -1,6 +1,5 @@
 \name{ssd2igl}
 \alias{ssd2igl}
-%- Also NEED an '\alias' for EACH other topic documented here.
 \title{Convert sunshine duration to global radiation}
 \description{
   The function converts values of sunshine duration (in hours) to global radiation
@@ -9,30 +8,16 @@
 \usage{
 ssd2igl(S, doy, a = 0.25, b = 0.5, rho = 50.29)
 }
-%- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{S}{Sunshine duration (hours)}
   \item{doy}{Julian day (for northern hemisphere only)}
   \item{a, b, rho}{site specific conversion parameters, must be fitted to
     measured data}
 }
-\details{
-  ~~ If necessary, more details than the description above ~~
-}
-\value{
-  ~Describe the value returned
-  If it is a LIST, use
-  \item{comp1 }{Description of 'comp1'}
-  \item{comp2 }{Description of 'comp2'}
-  ...
-}
-\references{ ~put references to the literature/web site here ~ }
-\author{ ~~who you are~~ }
-\note{ ~~further notes~~ 
 
- ~Make other sections like Warning with \section{Warning }{....} ~
+\value{
+  vector of converted values
 }
-\seealso{ ~~objects to See Also as \code{\link{help}}, ~~~ }
 \examples{
 ##---- Should be DIRECTLY executable !! ----
 ##-- ==>  Define data, use random,

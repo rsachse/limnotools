@@ -1,7 +1,7 @@
 \name{O2sat}
 \alias{O2sat}
 
-\title{Saturation concentration of oxygen in water}}
+\title{Saturation concentration of oxygen in water}
 \description{
   Empiracal formulae that can be used to compute saturation concentration of 
   oxygen in water in \eqn{mg/L}{mg L^{-1}}
