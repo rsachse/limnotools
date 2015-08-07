@@ -13,7 +13,7 @@ You can install the package directly from github by using the devtools package. 
 Afterwards you can install limnotools by typing:
 
 	library(devtools)
-	install_github("limnotools", username="rsachse")
+	install_github("rsachse/limnotools")
 	
 You also can download the source package or precompiled Windows binary packages 
 from the [github releases page](https://github.com/rsachse/limnotools/releases).
