@@ -4,7 +4,7 @@
 \title{Load calculation methods for dissolved and suspended matter in rivers}
 \description{
   This function provides several load calculation routines known from the literature.
-  \textbf{Note: the code is experimental, several methods are not yet documented and
+  \bold{Note: the code is experimental, several methods are not yet documented and
   not all methods are thoroughly tested!!!}
 }
 \usage{
